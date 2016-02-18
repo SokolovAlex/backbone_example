@@ -1,0 +1,30 @@
+{
+  "name": "backbone_example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SokolovAlex/backbone_example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SokolovAlex/backbone_example/issues"
+  },
+  "homepage": "https://github.com/SokolovAlex/backbone_example#readme",
+  "dependencies": {
+    "babelify": "^7.2.0",
+    "backbone": "^1.2.3",
+    "bootstrap": "^3.3.6",
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "handlebars": "^4.0.5",
+    "rimraf": "^2.5.2",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
