@@ -7,9 +7,8 @@ var gulp = require("gulp"),
 
 var watch_src = ['src/js/*.js'];
 
-gulp.task('clean', function() {
-    gulp.src(["src/build/**/*.js", "src/build/**/*.css"], { read: false })
-        .pipe(rimraf());
+gulp.task('clean', () => {
+    return rimraf("src/build/**/*.*", { nosort: true, silent: true }, function(){});
 });
 
 gulp.task('js', () => {
@@ -17,11 +16,11 @@ gulp.task('js', () => {
         .transform(babelify, { presets: ["es2015"] })
         .bundle()
         .pipe(source('app.js'))
-        .pipe(gulp.dest('src/build/js'));
+        .pipe(gulp.dest('src/build'));
 });
 
 gulp.task("watch", () => {
-    gulp.watch(watch_src, ['js']);
+    gulp.watch(watch_src, ['js', 'css']);
 });
 
 gulp.task("css", () => {
@@ -31,3 +30,5 @@ gulp.task("css", () => {
 });
 
 gulp.task("build", ['clean', 'js', 'css', 'watch']);
+
+gulp.task("default", ['build']);
