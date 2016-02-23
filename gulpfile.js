@@ -3,6 +3,7 @@ var gulp = require("gulp"),
     rimraf = require("rimraf"),
     concat = require("gulp-concat"),
     source = require('vinyl-source-stream'),
+    webserver = require('gulp-webserver'),
     babelify = require('babelify');
 
 var watch_src = ['src/js/*.js'];
@@ -29,6 +30,16 @@ gulp.task("css", () => {
         .pipe(gulp.dest('src/build/'))
 });
 
+gulp.task('webserver', () =>{
+    gulp.src('./')
+        .pipe(webserver({
+            livereload: true,
+            port: 2222,
+            directoryListing: true,
+            open: true
+        }));
+});
+
 gulp.task("build", ['clean', 'js', 'css', 'watch']);
 
-gulp.task("default", ['build']);
+gulp.task("default", ['build', 'webserver']);

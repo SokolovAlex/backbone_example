@@ -24,6 +24,7 @@
     "browserify": "^13.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
+    "gulp-webserver": "^0.9.1",
     "handlebars": "^4.0.5",
     "jquery": "^2.2.0",
     "rimraf": "^2.5.2",
