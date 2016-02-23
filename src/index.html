@@ -50,12 +50,16 @@
 </div>
 
 <script type="text/template" id="personTemplate">
-    <div class="person_selected">
-        <div> {{ first_name }} </div>
-        <div> {{ last_name }} </div>
-        <div> {{ age }} </div>
-        <div> {{ location }} </div>
-    </div>
+    {{#if id}}
+        <div class="person_selected">
+            <div> {{ first_name }} </div>
+            <div> {{ last_name }} </div>
+            <div> {{ age }} </div>
+            <div> {{ location }} </div>
+        </div>
+    {{else}}
+        <h3>Empty</h3>
+    {{/if}}
 </script>
 
 <script type="text/template" id="personListTemplate">

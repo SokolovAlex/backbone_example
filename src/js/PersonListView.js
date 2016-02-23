@@ -5,25 +5,21 @@ const Backbone = require('backbone'),
     $ = require('jquery'),
     Handlebars = require('handlebars');
 
-let PersonCollection = require('./personCollection.js');
-let persons = new PersonCollection();
-let promise,
-    templateFn;
+let templateFn;
 
 module.exports = Backbone.View.extend({
     el: '#person_list',
     initialize() {
-        promise = persons.fetch();
-        let source = $('#personListTemplate').html();
+        let source = $('#personTemplate').html();
         templateFn = Handlebars.compile(source);
     },
-    render() {
-        var self = this;
-        promise.done((items) => {
-            self.$el.html(templateFn({ persons: items}));
-        });
+    render(items) {
+        this.$el.html(templateFn({ persons: items }));
+    },
+    selectPerson() {
+
     },
     events: {
-        'keypress #new-todo': 'createTodoOnEnter'
+        'click #person': 'selectPerson'
     }
 });
