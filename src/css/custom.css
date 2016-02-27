@@ -1,5 +1,4 @@
 #person {
-    width: 300px;
     height: 300px;
 }
 
@@ -21,4 +20,17 @@
 
 .person.active {
     border: solid 3px blue;
+}
+
+.person_selected {
+    font-size: 18px;
+}
+
+.pager > div {
+    display: inline-block;
+}
+
+.pager .next,
+.pager .prev {
+    cursor: pointer;
 }

@@ -50,13 +50,15 @@
 </div>
 
 <script type="text/template" id="personTemplate">
-    {{#if id}}
-        <div class="person_selected">
-            <div> {{ first_name }} </div>
-            <div> {{ last_name }} </div>
-            <div> {{ age }} </div>
-            <div> {{ location }} </div>
-        </div>
+    {{#if person}}
+        {{#with person}}
+            <div class="person_selected">
+                <div> {{ first_name }} </div>
+                <div> {{ last_name }} </div>
+                <div> {{ age }} </div>
+                <div> {{ location }} </div>
+            </div>
+        {{/with}}
     {{else}}
         <h3>Empty</h3>
     {{/if}}
@@ -64,13 +66,18 @@
 
 <script type="text/template" id="personListTemplate">
     {{#each persons}}
-        <div class="person">
+        <div class="person" data-id="{{id}}">
             <div> {{ first_name }} </div>
             <div> {{ last_name }} </div>
             <div> {{ age }} </div>
             <div> {{ location }} </div>
         </div>
     {{/each}}
+    <div class="pager">
+        <div class="prev">prev</div>
+        <div>{{pager.current}} / {{pager.all}}</div>
+        <div class="next">next</div>
+    </div>
 </script>
 
 <script src="build/app.js"></script>

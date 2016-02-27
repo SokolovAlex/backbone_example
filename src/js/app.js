@@ -3,8 +3,6 @@
  */
 
 let Backbone = require('backbone');
-let Router = require('./router.js');
-
-new Router();
+let router = require('./router.js');
 
 Backbone.history.start();

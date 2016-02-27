@@ -13,10 +13,32 @@ let PersonCollection = require('./personCollection.js');
 let persons = new PersonCollection();
 let promise = persons.fetch();
 
-module.exports = Backbone.Router.extend({
+let currentPersonId,
+    currentPage = 0;
+listView.on('select', (id) => {
+    router.navigate(`person/${id}/page/${currentPage}`);
+    renderPerson(id);
+});
+
+listView.on('page', (page) => {
+    router.navigate(`person/${currentPersonId || 0}/page/${page}`);
+    renderPerson(currentPersonId || 0, page);
+});
+
+var renderPerson = (id, page) => {
+    currentPersonId = id || currentPersonId;
+    currentPage = page || currentPage;
+    promise.done((items) => {
+        listView.render(items, currentPage);
+        let person = _.find(items, (x) => x.id == currentPersonId);
+        personView.render(person);
+    });
+};
+
+let Router = Backbone.Router.extend({
     routes: {
         "": "empty",
-        "person/:id": "person"
+        "person/:id/page/:page": "person"
     },
     empty() {
         promise.done((items) => {
@@ -24,11 +46,9 @@ module.exports = Backbone.Router.extend({
             personView.render();
         });
     },
-    person(id) {
-        promise.done((items) => {
-            listView.render(items, id);
-            let person = _.find((x) => x.id == id);
-            personView.render(person);
-        });
-    }
+    person: renderPerson
 });
+
+let router = new Router();
+
+module.exports = router;

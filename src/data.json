@@ -40,5 +40,47 @@
     "age": 60,
     "location": "Sawpit",
     "id": 6
+  },
+  {
+    "first_name": "Al",
+    "last_name": "Pushkin",
+    "age": 33,
+    "location": "russia",
+    "id": 7
+  },
+  {
+    "first_name": "Vitold",
+    "last_name": "Gombrovich",
+    "age": 50,
+    "location": "Polska",
+    "id": 8
+  },
+  {
+    "first_name": "Henry",
+    "last_name": "Miller",
+    "age": 35,
+    "location": "USA",
+    "id": 9
+  },
+  {
+    "first_name": "JanPol",
+    "last_name": "Sartr",
+    "age": 27,
+    "location": "Paris",
+    "id": 10
+  },
+  {
+    "first_name": "Vladimir",
+    "last_name": "Mayakovskiy",
+    "age": 29,
+    "location": "USSR",
+    "id": 11
+  },
+  {
+    "first_name": "Milan",
+    "last_name": "Kundera",
+    "age": 60,
+    "location": "Czech",
+    "id": 12
   }
 ]
