@@ -13,16 +13,16 @@ let PersonCollection = require('./personCollection.js');
 let persons = new PersonCollection();
 let promise = persons.fetch();
 
-let currentPersonId,
-    currentPage = 0;
+let currentPersonId = 0,
+    currentPage = 1;
 listView.on('select', (id) => {
     router.navigate(`person/${id}/page/${currentPage}`);
     renderPerson(id);
 });
 
 listView.on('page', (page) => {
-    router.navigate(`person/${currentPersonId || 0}/page/${page}`);
-    renderPerson(currentPersonId || 0, page);
+    router.navigate(`person/${currentPersonId}/page/${page}`);
+    renderPerson(currentPersonId, page);
 });
 
 var renderPerson = (id, page) => {

@@ -5,8 +5,8 @@ const Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
     defaults: {
-        fname: 'Vitold',
-        lname: 'Gombrovich',
+        firstName: 'Vitold',
+        lastName: 'Gombrovich',
         age: 33,
         location: 'Polska'
     }

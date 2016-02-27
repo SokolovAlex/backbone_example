@@ -3,7 +3,6 @@
  */
 
 const Backbone = require('backbone');
-
 let Person = require('./personModel.js');
 
 module.exports = Backbone.Collection.extend({

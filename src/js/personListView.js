@@ -23,16 +23,10 @@ module.exports = Backbone.View.extend({
     },
     render(items, page) {
         cached = items || cached;
-
-
-
         if (page) {
             pager.current = page;
         }
         pager.all = Math.ceil(cached.length / pager.size);
-
-        console.log(pager);
-
         this.renderCached();
     },
     renderCached() {
